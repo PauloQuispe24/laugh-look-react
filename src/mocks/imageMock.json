@@ -1,0 +1,30 @@
+{
+  "page": 1,
+  "per_page": 1,
+  "photos": [
+    {
+      "id": 2805877,
+      "width": 7952,
+      "height": 5304,
+      "url": "https://www.pexels.com/photo/man-in-a-jacket-holding-camera-2805877/",
+      "photographer": "Javon Swaby",
+      "photographer_url": "https://www.pexels.com/@javon-swaby-197616",
+      "photographer_id": 197616,
+      "avg_color": "#9C8F85",
+      "src": {
+        "original": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg",
+        "large2x": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "large": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+        "medium": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&h=350",
+        "small": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&h=130",
+        "portrait": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+        "landscape": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+        "tiny": "https://images.pexels.com/photos/2805877/pexels-photo-2805877.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
+      },
+      "liked": false,
+      "alt": "Man posing with camera in Toronto's natural setting, exploring photography."
+    }
+  ],
+  "total_results": 8000,
+  "next_page": "https://api.pexels.com/v1/search?page=2&per_page=1&query=self-taught"
+}
