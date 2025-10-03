@@ -1,21 +1,35 @@
 import { useEffect, useState } from "react";
-import jokeMock from "./mocks/jokeMock.json";
-import imageMock from "./mocks/imageMock.json";
 
-const getMockJoke = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(jokeMock);
-    }, 2000);
-  });
+const getMockJoke = async () => {
+  try {
+    const response = await fetch(import.meta.env.VITE_JOKE_API_URL);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data " + error);
+    return null;
+  }
 };
 
-const getImageMock = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(imageMock);
-    }, 2000);
-  });
+const getImageMock = async (query) => {
+  try {
+    const response = await fetch(
+      import.meta.env.VITE_IMAGE_API_URL + `?per_page=1&query=${query}`,
+      {
+        headers: {
+          Authorization:
+            "CqHZdmjuakes4aa4y0lXzLraSTGNGi419eU2yIbPNhG8rtJyAI7eNYXV",
+        },
+      }
+    );
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data " + error);
+    return null;
+  }
 };
 
 export default function App() {
@@ -39,7 +53,7 @@ export default function App() {
         );
       setLongestWord(newLongestWord);
 
-      const dataImage = await getImageMock();
+      const dataImage = await getImageMock(newLongestWord);
       const newImageUrl = dataImage.photos[0].src.original;
       setImageUrl(newImageUrl);
     } catch (error) {
