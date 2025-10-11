@@ -1,23 +1,32 @@
-export function RandomImage({
-  imageUrl,
-  imageDescription,
-  photographerName,
-}) {
+export function RandomImage({ imageUrl, imageDescription, photographerName }) {
   return (
     <>
       {imageUrl && (
-        <>
-          <img src={imageUrl} alt={imageDescription} title={imageDescription} />
+        <section className="image-card">
+          <img
+            className="image-card__img"
+            src={imageUrl}
+            alt={imageDescription}
+            title={imageDescription}
+          />
           {photographerName && (
-            <>
-              <p>Photographer: {photographerName}</p>
-              <a href="https://www.pexels.com" target="_blank">
-                Photos provided by Pexels
+            <section className="image-info-box">
+              <p className="image-info-box__item">
+                <span>Description:</span> {imageDescription}
+              </p>
+              <p className="image-info-box__item">
+                <span>Photographer:</span> {photographerName}
+              </p>
+              <a
+                className="image-info-box__item image-info-box__item--link"
+                href="https://www.pexels.com"
+                target="_blank"
+              >
+                Photos provided by PEXELS
               </a>
-              <p>----- PEXELS -----</p>
-            </>
+            </section>
           )}
-        </>
+        </section>
       )}
     </>
   );

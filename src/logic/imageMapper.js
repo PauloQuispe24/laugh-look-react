@@ -3,8 +3,8 @@ export function mappedImageData(apiData) {
   const firstPhoto = apiData.photos[0];
   const mappedImage = {
     imageUrl: firstPhoto.src.original,
-    imageDescription: firstPhoto.alt,
-    photographerName: firstPhoto.photographer,
+    imageDescription: firstPhoto.alt || "No description",
+    photographerName: firstPhoto.photographer || "No photographer",
   };
   return mappedImage;
 }

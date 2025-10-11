@@ -7,11 +7,12 @@ export function useRandomJoke(
   setIsLoading,
   setJoke,
   setTopicJoke,
+  setIsWelcomeScreen,
   setError
 ) {
   const getNewJoke = useCallback(async () => {
+    setIsWelcomeScreen(false);
     resetStates();
-    setIsLoading(true);
     try {
       const dataJoke = await getRandomJoke();
       const newMappedJoke = mappedJokeData(dataJoke);
@@ -26,6 +27,13 @@ export function useRandomJoke(
       setError(error);
       setIsLoading(false);
     }
-  }, [resetStates, setIsLoading, setJoke, setTopicJoke, setError]);
+  }, [
+    resetStates,
+    setIsLoading,
+    setJoke,
+    setTopicJoke,
+    setIsWelcomeScreen,
+    setError,
+  ]);
   return [getNewJoke];
 }
