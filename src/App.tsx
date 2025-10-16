@@ -1,19 +1,18 @@
-import { RandomJoke, RandomImage } from "./components";
-import { useJokeAppLogic } from "./hooks";
+import type { ReactElement } from "react";
+import { RandomJoke, RandomImage } from "./components/index.ts";
+import { useJokeAppLogic } from "./hooks/index.ts";
+import type { UseJokeAppLogic } from "./types/index.ts";
 
-export function App() {
+export function App(): ReactElement {
   const {
-    joke,
-    topicJoke,
+    jokeData,
     longestWord,
-    imageUrl,
-    imageDescription,
-    photographerName,
+    imageData,
     isWelcomeScreen,
     isLoading,
     error,
     getNewJoke,
-  } = useJokeAppLogic();
+  }: UseJokeAppLogic = useJokeAppLogic();
 
   return (
     <main className="app-container">
@@ -34,18 +33,13 @@ export function App() {
           : "Get Another Joke"}
       </button>
       <RandomJoke
-        joke={joke}
-        topicJoke={topicJoke}
+        jokeData={jokeData}
         longestWord={longestWord}
         isWelcomeScreen={isWelcomeScreen}
         isLoading={isLoading}
         error={error}
       />
-      <RandomImage
-        imageUrl={imageUrl}
-        imageDescription={imageDescription}
-        photographerName={photographerName}
-      />
+      <RandomImage imageData={imageData} />
     </main>
   );
 }

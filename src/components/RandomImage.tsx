@@ -1,21 +1,26 @@
-export function RandomImage({ imageUrl, imageDescription, photographerName }) {
+import type { ReactElement } from "react";
+import type { RandomImageProps } from "../types/index.ts";
+
+export function RandomImage({
+  imageData,
+}: RandomImageProps): ReactElement {
   return (
     <>
-      {imageUrl && (
+      {imageData && (
         <section className="image-card">
           <img
             className="image-card__img"
-            src={imageUrl}
-            alt={imageDescription}
-            title={imageDescription}
+            src={imageData.imageUrl}
+            alt={imageData.imageDescription}
+            title={imageData.imageDescription}
           />
-          {photographerName && (
+          {imageData.photographerName && (
             <section className="image-info-box">
               <p className="image-info-box__item">
-                <span>Description:</span> {imageDescription}
+                <span>Description:</span> {imageData.imageDescription}
               </p>
               <p className="image-info-box__item">
-                <span>Photographer:</span> {photographerName}
+                <span>Photographer:</span> {imageData.photographerName}
               </p>
               <a
                 className="image-info-box__item image-info-box__item--link"

@@ -1,4 +1,4 @@
-export function calculateLongestWord(text) {
+export function calculateLongestWord(text: string): string {
   const cleanText = text
     .replace(/[^a-zA-Z']/g, " ")
     .toLowerCase()

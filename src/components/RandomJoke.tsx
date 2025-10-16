@@ -1,13 +1,14 @@
-import { Loader } from "./";
+import type { ReactElement } from "react";
+import { Loader } from "./index.ts";
+import type { RandomJokeProps } from "../types/index.ts";
 
 export function RandomJoke({
-  joke,
-  topicJoke,
+  jokeData,
   longestWord,
   isWelcomeScreen,
   isLoading,
   error,
-}) {
+}: RandomJokeProps): ReactElement {
   if (isWelcomeScreen) {
     return (
       <p className="welcome-message">
@@ -26,19 +27,19 @@ export function RandomJoke({
   }
 
   if (error) {
-    const errorMessage = error?.message || "Error...";
+    const errorMessage = error.message || "Error...";
     return <p className="error-message">{errorMessage}</p>;
   }
 
   return (
     <>
-      {joke && (
+      {jokeData && (
         <section className="joke-card">
           <p className="joke-card__item">
-            <span>Topic:</span> {topicJoke}
+            <span>Topic:</span> {jokeData.topicJoke}
           </p>
           <p className="joke-card__item">
-            <span>Joke:</span> {joke}
+            <span>Joke:</span> {jokeData.jokeText}
           </p>
           <p className="joke-card__item">
             <span>Longest Word:</span> {longestWord}
