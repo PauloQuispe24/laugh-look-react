@@ -1,0 +1,21 @@
+services:
+  app-dev:
+    build:
+      context: .
+      target: development
+    profiles: ["dev"]
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  app-prod:
+    build:
+      context: .
+      target: production
+    profiles: ["prod"]
+    ports:
+      - "8080:80"
