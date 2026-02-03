@@ -29,8 +29,8 @@ export function App(): ReactElement {
         {isLoading
           ? "Loading..."
           : isWelcomeScreen
-          ? "Get Joke"
-          : "Get Another Joke"}
+            ? "Get Joke"
+            : "Get Another Joke"}
       </button>
       <RandomJoke
         jokeData={jokeData}

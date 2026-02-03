@@ -22,6 +22,9 @@
     "react-dom": "19.1.1"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": "./node_modules/standard/eslintrc.json",
+    "rules": {
+      "import/no-absolute-path": "off"
+    }
   }
 }
